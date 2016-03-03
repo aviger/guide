@@ -1,22 +1,19 @@
-rev [] = []
-rev (x:xs) = rev xs ++ [x]
-
 switch f x y = f y x
-
-kelement 1 (x:xs) = x
-kelement n (x:xs) = kelement (n-1) xs
-
-maxelem (x:[])= x
-maxelem (x:xs) = if x > head xs then maxelem (x: tail xs) else maxelem xs 
-
 
 sieve n = siv [2..n] where 
 	siv (x:[]) =[x]
 	siv (x:xs) = x:(siv[a|a<-xs, mod a x /= 0])
-
 
 primedec n = comp 2 n
  where 
  comp x 1 = []
  comp a b = if mod b a == 0 then a:comp a (div b a) else comp (a+1) b
 
+rev [] = []
+rev (x:xs) = rev xs ++ [x]
+
+kelement 1 (x:xs) = x
+kelement n (x:xs) = kelement (n-1) xs
+
+maxelem (x:[])= x
+maxelem (x:xs) = if x > head xs then maxelem (x: tail xs) else maxelem xs 
